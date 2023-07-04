@@ -1,0 +1,36 @@
+#EXERCÍCIOS CAP.4 (PT2)
+import numpy as np
+
+#1- CRIE UM ARRAY DE FLOATS COM 10 ELEMENTOS POSITIVOS E NEGATIVOS ENTRE 0 E 1. EM SEGUIDA, MULTIPLIQUE SEUS VALORES POR 100 E CRIE UM NOVO VETOR APENAS COM A PARTE INTEIRA DESTES NÚMEROS; (USE seed(5) ANTES).
+np.random.seed(5)
+arr0 = np.random.randn(10)
+arr1 = (arr0*100).astype(int)
+print("QUESTÃO 1:", arr1, "\n")
+
+
+#2- CRIE UMA MATRIZ DE TAMANHO 4X4 FORMADA POR NÚMEROS ALEATÓRIOS INTEIROS ENTRE 1 E 50; (USE seed(10) ANTES).
+np.random.seed(10)
+mtz = np.random.randint(1,50,(4,4))
+print("QUESTÃO 2:")
+print(mtz, "\n")
+
+
+#3- MOSTRE O RESULTADO DA MÉDIA DE CADA LINHA E CADA COLUNA DA MATRIZ GERADA PELA QUESTÃO 2, E EM SEGUIDA, APRESENTE O MAIOR VALOR DAS MÉDIAS PARA AS LINHAS E TAMBÉM PARA AS COLUNAS;
+print("QUESTÃO 3:")
+medC = np.mean(mtz, axis=0)
+medL = np.mean(mtz, axis=1)
+print("MÉDIA DE CADA LINHA: ", medL)
+print("MÉDIA DE CADA COLUNA:", medC)
+print("MAIOR MÉDIA ENTRE AS LINHAS: ", np.max(medL))
+print("MAIOR MÉDIA ENTRE AS COLUNAS:", np.max(medC), "\n")
+
+
+#4- BASEADO NA MATRIZ GERADA NA QUESTÃO 2, MOSTRE A QUANTIDADE DE APARIÇÕES DE CADA UM DOS NÚMEROS NA MESMA. EM SEGUIDA, MOSTRE APENAS OS NÚMEROS QUE APARECEM 2 VEZES.
+print("QUESTÃO 4:")
+qtdAP = np.unique(mtz, return_counts=True)
+print("QUANTIDADE DE APARIÇÕES DE CADA UM DOS NÚMEROS NA MATRIZ:", qtdAP)
+
+'''     
+repetidos = ***NÃO CONSEGUI FAZER***
+print("NÚMEROS QUE APARECEM 2 VEZES:", repetidos)  
+'''

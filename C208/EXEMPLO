@@ -1,0 +1,42 @@
+.data
+frase1: .asciiz "ENTRE COM A BASE MENOR: "
+frase2: .asciiz "ENTRE COM A BASE MAIOR: "
+frase3: .asciiz "ENTRE COM A ALTURA: "
+frase4: .asciiz "ÁREA: "
+
+.text
+li $v0, 4		#IMPRIME STRING
+la $a0, frase1
+syscall
+li $v0, 5		#LÊ UM INT
+syscall
+add $t0, $v0, $0	#$t0 -> GUARDA O PRIMEIRO VALOR LIDO (BASE MENOR)
+
+li $v0, 4		#IMPRIME STRING
+la $a0, frase2
+syscall
+li $v0, 5		#LÊ UM INT
+syscall
+add $t1, $v0, $0	#$t1 -> GUARDA O SEGUNDO VALOR LIDO (BASE MAIOR)
+
+li $v0, 4		#IMPRIME STRING
+la $a0, frase2
+syscall
+li $v0, 5		#LÊ UM INT
+syscall
+add $t2, $v0, $0	#$t2 -> GUARDA O TERCEIRO VALOR LIDO (ALTURA)
+
+
+#CÁCULOS
+add $t3,$t0,$t1		#$t3 -> recebe $t0 (BASE MENOR) + $t1 (BASE MAIOR)
+mul $t4,$t3,$t2		#$t4 -> recebe $t3 (BASE MENOR + BASE MAIOR) * $t2 (ALTURA)
+div $t5,$t4,2		#$t5 -> recebe $t4 e divide por 2
+
+#APRESENTAÇÃO DOS VALORES
+li $v0, 4
+la $a0, frase3			#IMPRIME STRING (frase3)
+syscall
+
+add $a0, $t5, $0		#$a0 -> recebe $t5 (ÁREA CALCULADA)
+li $v0, 1			#IMPRIME INT QUE ESTÁ NO a0.
+syscall

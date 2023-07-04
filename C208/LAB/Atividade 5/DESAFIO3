@@ -1,0 +1,11 @@
+#EXERCÍCIO 3 - DESAFIO
+.text
+li $t0, 54 			#a
+li $t1, 45 			#b
+
+add $t2,$t0,$t1			#$t2 -> recebe $t0 + $t1 (a + b).
+
+#APRESENTAÇÃO DOS VALORES
+add $a0, $t2, $0		#$a0 -> recebe $t2
+li $v0, 1			#IMPRIME INTEIRO(%d) QUE ESTÁ NO a0.
+syscall

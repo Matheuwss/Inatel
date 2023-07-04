@@ -1,0 +1,32 @@
+#EXERCÍCIO 1
+.data
+frase1: .asciiz "Entre com o número binário: "
+frase2: .asciiz "O número binário convertido p/ decimal é: "
+n: .space 8
+
+.text
+li $v0, 4			#IMPRIME STRING
+la $a0, frase1
+syscall
+li $v0, 8			#LÊ UMA STRING
+la $a0, n
+la $a1, 8
+syscall
+
+move $t0,$v0			#MOVENDO O VALOR LIDO  -  $t0 -> RECEBE .
+
+#CÁLCULOS
+#converte o número binário em seu equivalente decimal (usando os primeiros principios).
+
+
+
+
+
+#APRESENTAÇÃO DOS VALORES
+li $v0, 4			#IMPRIME STRING
+la $a0, frase2
+syscall
+
+add $a0, $t1, $0		#$a0 -> recebe $t1
+li $v0, 1			#IMPRIME INT QUE ESTÁ NO a0.
+syscall
